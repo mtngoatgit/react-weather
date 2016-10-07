@@ -1,7 +1,7 @@
 import React from 'react';
 import City from './Location.js';
 
-const citylist = ["Chicago", "Orem", "New York", "Brisbane", "Detroit", "Las Vegas", "Seattle", "Philadelphia"]
+const citylist = []
 //WEATHER COMPONENT
 export default React.createClass({
 	getInitialState() {
@@ -22,7 +22,8 @@ export default React.createClass({
 					{this.state.cityList.map((inputData, index) => {
 						return <City key={index} city={inputData} />
 					})}
-			<select onChange={e => this.setState({cityList: this.state.cityList.concat([e.target.value])})}>
+			{/* <select onChange={e => this.setState({cityList: this.state.cityList.concat([e.target.value])})}> */}
+      <div>storage</div>
 				{citylist
 					.filter((city) => {
 						return this.state.cityList.indexOf(city) === -1;
@@ -30,7 +31,7 @@ export default React.createClass({
 					.map((city) => {
 						return <option key={city} value={city}>{city}</option>
 					})}
-			</select>
+			{/* </select> */}
 			</div>
 		)
 	},
