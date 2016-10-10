@@ -1,5 +1,6 @@
 import React from 'react';
 import City from './Location.js';
+require('./weather.component.scss');
 
 const citylist = []
 //WEATHER COMPONENT
@@ -13,6 +14,7 @@ export default React.createClass({
 	render() {
 		return (
 			<div>
+        <div className="input-container">
 				<input
 					placeholder="name your city"
 					value={this.state.cityInput}
@@ -22,16 +24,16 @@ export default React.createClass({
 					{this.state.cityList.map((inputData, index) => {
 						return <City key={index} city={inputData} />
 					})}
-			{/* <select onChange={e => this.setState({cityList: this.state.cityList.concat([e.target.value])})}> */}
-      <div>storage</div>
-				{citylist
-					.filter((city) => {
-						return this.state.cityList.indexOf(city) === -1;
-					})
-					.map((city) => {
-						return <option key={city} value={city}>{city}</option>
-					})}
-			{/* </select> */}
+        </div>
+        <div>
+  				{citylist
+  					.filter((city) => {
+  						return this.state.cityList.indexOf(city) === -1;
+  					})
+  					.map((city) => {
+  						return <option key={city} value={city}>{city}</option>
+  					})}
+        </div>
 			</div>
 		)
 	},
